@@ -35,9 +35,9 @@ parser.add_argument('--learning-rate', default = 0.001, type = float, metavar = 
                     help = 'learning rate (default: 0.001)')
 parser.add_argument('--margin', default = 0.5, type = float, metavar = 'MG',
                     help = 'margin (default: 0.5)')
-parser.add_argument('--train-root-dir', default = '/run/media/hoosiki/WareHouse2/home/mtb/datasets/vggface2/test_mtcnnpy_182', type = str,
+parser.add_argument('--train-root-dir', default = '~/data/vggface2/train', type = str,
                     help = 'path to train root dir')
-parser.add_argument('--valid-root-dir', default = '/run/media/hoosiki/WareHouse2/home/mtb/datasets/lfw/lfw_mtcnnpy_182', type = str,
+parser.add_argument('--valid-root-dir', default = '~/data/lfw', type = str,
                     help = 'path to valid root dir')
 parser.add_argument('--train-csv-name', default = './datasets/test_vggface2.csv', type = str,
                     help = 'list of training images')
@@ -45,7 +45,8 @@ parser.add_argument('--valid-csv-name', default = './datasets/lfw.csv', type = s
                     help = 'list of validtion images')
 
 args    = parser.parse_args()
-device  = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+#device  = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device  = torch.device('cpu')
 l2_dist = PairwiseDistance(2)
 
 
